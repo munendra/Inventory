@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Inventory.Domain.Entities
@@ -8,10 +9,13 @@ namespace Inventory.Domain.Entities
         [Key]
         public Guid Id { get; set; }
 
+        public string Name { get; set; }
+
         public int Quantity { get; set; }
 
         public string Description { get; set; }
       
         public double Price { get; set; }
+
     }
 }
