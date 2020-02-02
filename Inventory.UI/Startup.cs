@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using AutoMapper;
 
 namespace Inventory.UI
 {
@@ -21,6 +22,7 @@ namespace Inventory.UI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<InventoryContext>(options =>options.UseSqlServer(Configuration.GetConnectionString("InventoryDatabase")));
+            services.AddAutoMapper(typeof(Startup));
             services.AddControllersWithViews();
         }
 

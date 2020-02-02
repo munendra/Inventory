@@ -1,9 +1,10 @@
 ﻿using Inventory.Domain;
 using Inventory.Domain.Entities;
+using Invetory.Repository.Contracts;
 
 namespace Invetory.Repository.Implementations
 {
-    public class OrderRepository
+    public class OrderRepository: IOrderRepository
     {
         public InventoryContext InventoryContext { get; set; }
         public OrderRepository(InventoryContext inventoryContext)
