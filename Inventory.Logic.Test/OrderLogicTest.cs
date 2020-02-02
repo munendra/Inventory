@@ -17,10 +17,12 @@ namespace Inventory.Logic.Test
     {
         private OrderLogic orderLogic { get; set; }
         public InventoryContext InventoryContext { get; set; }
+        public Mock<IItemRepository> IItemRepository;
         public OrderLogicTest()
         {
+            IItemRepository = new Mock<IItemRepository>();
             InventoryContext = InventoryContext.Create();
-            orderLogic = new OrderLogic(new OrderRepository(InventoryContext));
+            orderLogic = new OrderLogic(new OrderRepository(InventoryContext), IItemRepository.Object);
         }
 
         [Fact]
