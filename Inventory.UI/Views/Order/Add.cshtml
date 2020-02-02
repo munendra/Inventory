@@ -1,0 +1,43 @@
+﻿@inject IItemLogic _itemLogic
+@model OrderModel
+@{
+    ViewData["Title"] = "Add";
+}
+
+<h1>Add</h1>
+
+<h1>New Order</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Add">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="OrderMaster.OrderBy" class="control-label"></label>
+                <input asp-for="OrderMaster.OrderBy" class="form-control" />
+                <span asp-validation-for="OrderMaster.OrderBy" class="text-danger"></span>
+            </div>
+            @for (int i = 0; i < 5; i++)
+            {
+                <div class="form-group">
+                    <label class="control-label">Item</label>
+                    <select asp-for="OrderDetail[i].ItemId"
+                            class="form-control"
+                            asp-items="@(new SelectList(_itemLogic.All(),"Id", "Name"))">
+                    </select>
+                    <span asp-validation-for="OrderDetail[i].ItemId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Quantity</label>
+                    <input asp-for="OrderDetail[i].Quantity" class="form-control" />
+                    <span asp-validation-for="OrderDetail[i].Quantity" class="text-danger"></span>
+                </div>
+            }
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+

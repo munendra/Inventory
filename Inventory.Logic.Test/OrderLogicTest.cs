@@ -61,7 +61,7 @@ namespace Inventory.Logic.Test
                     {
                         Id= Guid.NewGuid(),
                         Quantity=2,
-                        ITems= null
+                        ItemId=Guid.Empty
                     }
                 }
             };
@@ -83,59 +83,13 @@ namespace Inventory.Logic.Test
                     {
                         Id= Guid.NewGuid(),
                         Quantity=2,
-                        ITems= new List<Item>()
-                        {
-                            new Item
-                            {
-                                Id= Guid.NewGuid(),
-                                Name="Name 1",
-                                Description="Desc 1",
-                                Price=50,
-                                Quantity=5
-                            },
-                            new Item
-                            {
-                                Id= Guid.NewGuid(),
-                                Name="Name 2",
-                                Description="Desc 2",
-                                Price=50,
-                                Quantity=5
-                            },
-
-                        }
+                        ItemId=Guid.NewGuid()
                     },
                     new OrderDetail
                     {
                         Id= Guid.NewGuid(),
                         Quantity=0,
-                        ITems= new List<Item>()
-                        {
-                            new Item
-                            {
-                                Id= Guid.NewGuid(),
-                                Name="Name 1",
-                                Description="Desc 1",
-                                Price=50,
-                                Quantity=5
-                            },
-                            new Item
-                            {
-                                Id= Guid.NewGuid(),
-                                Name="Name 2",
-                                Description="Desc 2",
-                                Price=50,
-                                Quantity=5
-                            },
-                            new Item
-                            {
-                                Id= Guid.NewGuid(),
-                                Name="Name 3",
-                                Description="Desc 3",
-                                Price=500,
-                                Quantity=20
-                            },
-
-                        }
+                        ItemId=Guid.NewGuid()
                     }
                 }
             };
@@ -157,59 +111,13 @@ namespace Inventory.Logic.Test
                     {
                         Id= Guid.NewGuid(),
                         Quantity=2,
-                        ITems= new List<Item>()
-                        {
-                            new Item
-                            {
-                                Id= Guid.NewGuid(),
-                                Name="Name 1",
-                                Description="Desc 1",
-                                Price=50,
-                                Quantity=5
-                            },
-                            new Item
-                            {
-                                Id= Guid.NewGuid(),
-                                Name="Name 2",
-                                Description="Desc 2",
-                                Price=50,
-                                Quantity=5
-                            },
-
-                        }
+                        ItemId=Guid.NewGuid()
                     },
                     new OrderDetail
                     {
                         Id= Guid.NewGuid(),
                         Quantity=10,
-                        ITems= new List<Item>()
-                        {
-                            new Item
-                            {
-                                Id= Guid.NewGuid(),
-                                Name="Name 1",
-                                Description="Desc 1",
-                                Price=50,
-                                Quantity=5
-                            },
-                            new Item
-                            {
-                                Id= Guid.NewGuid(),
-                                Name="Name 2",
-                                Description="Desc 2",
-                                Price=50,
-                                Quantity=5
-                            },
-                            new Item
-                            {
-                                Id= Guid.NewGuid(),
-                                Name="Name 3",
-                                Description="Desc 3",
-                                Price=500,
-                                Quantity=20
-                            },
-
-                        }
+                        ItemId=Guid.NewGuid()
                     }
                 }
             };

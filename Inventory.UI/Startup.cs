@@ -6,6 +6,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using AutoMapper;
+using Inventory.Logic.Implementations;
+using Inventory.Logic.Contracts;
+using Invetory.Repository.Implementations;
+using Invetory.Repository.Contracts;
 
 namespace Inventory.UI
 {
@@ -23,6 +27,10 @@ namespace Inventory.UI
         {
             services.AddDbContext<InventoryContext>(options =>options.UseSqlServer(Configuration.GetConnectionString("InventoryDatabase")));
             services.AddAutoMapper(typeof(Startup));
+            services.AddTransient<IOrderLogic, OrderLogic>();
+            services.AddTransient<IItemLogic, ItemLogic>();
+            services.AddTransient<IItemRepository, ItemRepository>();
+            services.AddTransient<IOrderRepository, OrderRepository>();
             services.AddControllersWithViews();
         }
 

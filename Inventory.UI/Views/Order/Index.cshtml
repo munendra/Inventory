@@ -1,0 +1,57 @@
+﻿@inject IOrderLogic _orderLogic
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Orders</h1>
+
+<p style="text-align:right">
+    <a href="order/add">New Order</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Order Id
+            </th>
+            <th>
+                Order By
+            </th>
+            <th>
+                Order At
+            </th>
+            
+            <th>
+                Total Order
+            </th>
+            <th>
+                Grand Total
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in _orderLogic.All())
+        {
+            <tr>
+                <td>
+                    @item.Id
+                </td>
+                <td>
+                    @item.OrderBy
+                </td>
+                <td>
+                    @item.OrderAt
+                </td>
+                <td>
+                    @item.OrderDetails.Count()
+                </td>
+                <td>
+                    $@item.OrderDetails.Sum(s => s.Item.Price)
+                </td>
+                <td>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

@@ -31,7 +31,7 @@ namespace Inventory.Logic.Validation
 
         static void ValidateOrderItems(Dto.OrderMaster orderMaster)
         {
-            if (orderMaster.OrderDetails.Any(o => o.ITems == null) || !orderMaster.OrderDetails.Any(o => o.ITems.Any()))
+            if (orderMaster.OrderDetails.Any(o=>o.ItemId==Guid.Empty))
             {
                 throw new Exception("Invalid order request.");
             }

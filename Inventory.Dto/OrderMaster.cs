@@ -5,6 +5,10 @@ namespace Inventory.Dto
 {
     public class OrderMaster
     {
+        public OrderMaster()
+        {
+            OrderDetails = new List<OrderDetail>();
+        }
         public Guid Id { get; set; }
 
         public DateTime OrderAt { get; set; }

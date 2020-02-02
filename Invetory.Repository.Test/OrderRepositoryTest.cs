@@ -34,70 +34,25 @@ namespace Invetory.Repository.Test
                     {
                         Id= Guid.NewGuid(),
                         Quantity=2,
-                        ITems= new List<Item>()
-                        {
-                            new Item
-                            {
-                                Id= Guid.NewGuid(),
-                                Name="Name 1",
-                                Description="Desc 1",
-                                Price=50,
-                                Quantity=5
-                            },
-                            new Item
-                            {
-                                Id= Guid.NewGuid(),
-                                Name="Name 2",
-                                Description="Desc 2",
-                                Price=50,
-                                Quantity=5
-                            },
-
-                        }
+                         ItemId=Guid.NewGuid()
+                        
                     },
-                    new OrderDetail
-                    {
-                        Id= Guid.NewGuid(),
-                        Quantity=3,
-                        ITems= new List<Item>()
-                        {
-                            new Item
-                            {
-                                Id= Guid.NewGuid(),
-                                Name="Name 1",
-                                Description="Desc 1",
-                                Price=50,
-                                Quantity=5
-                            },
-                            new Item
-                            {
-                                Id= Guid.NewGuid(),
-                                Name="Name 2",
-                                Description="Desc 2",
-                                Price=50,
-                                Quantity=5
-                            },
-                            new Item
-                            {
-                                Id= Guid.NewGuid(),
-                                Name="Name 3",
-                                Description="Desc 3",
-                                Price=500,
-                                Quantity=20
-                            },
-
-                        }
-                    }
+                new OrderDetail
+                {
+                    Id = Guid.NewGuid(),
+                    Quantity = 3,
+                    ItemId= Guid.NewGuid()
                 }
+            }
             };
-            OrderRepository.Add(orderMaster);
+        OrderRepository.Add(orderMaster);
             var hasOrder = InventoryContext.OrderMaster.Any(o => o.Id == orderMasterId);
-            Assert.True(hasOrder);
+        Assert.True(hasOrder);
         }
 
-        ~OrderRepositoryTest()
-        {
-            InventoryContext.Flush();
-        }
+    ~OrderRepositoryTest()
+    {
+        InventoryContext.Flush();
     }
+}
 }
